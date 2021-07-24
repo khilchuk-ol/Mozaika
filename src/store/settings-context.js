@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
+import useCookies from "../hooks/use-cookies";
 import themes from "../themes/data";
 
 const INIT_STATE = {
@@ -13,11 +14,26 @@ const INIT_STATE = {
 const SettingsContext = createContext(INIT_STATE);
 
 export const SettingsContextProvider = (props) => {
+  const [getCookies, setCookies] = useCookies();
+
   const [theme, setTheme] = useState("default");
   const [themeFile, setThemeFile] = useState("");
   const [lang, setLang] = useState("en-US");
 
   useEffect(() => {
+    const settingsData = getCookies();
+    if (!settingsData) {
+      setCookies({ theme, lang });
+    } else {
+      if (settingsData.theme) {
+        setTheme(settingsData.theme);
+      }
+
+      if (settingsData.lang) {
+        setLang(settingsData.lang);
+      }
+    }
+
     const found = themes[theme];
 
     if (!found) {
@@ -25,7 +41,17 @@ export const SettingsContextProvider = (props) => {
     } else {
       setThemeFile(found);
     }
-  }, [theme]);
+  }, [theme, lang, getCookies, setCookies]);
+
+  const handleThemeChange = (newTheme) => {
+    setCookies({ lang, theme: newTheme });
+    setTheme(newTheme);
+  };
+
+  const handleLangChange = (newLang) => {
+    setCookies({ lang: newLang, theme });
+    setLang(newLang);
+  };
 
   return (
     <SettingsContext.Provider
@@ -33,8 +59,8 @@ export const SettingsContextProvider = (props) => {
         theme,
         themeFile,
         lang,
-        setTheme,
-        setLang,
+        changeTheme: handleThemeChange,
+        changeLang: handleLangChange,
       }}>
       {props.children}
     </SettingsContext.Provider>
