@@ -1,0 +1,26 @@
+.intensive-button {
+    border-color: #A0C4FF;
+    background-color: #A0C4FF;
+    color: #FFFFFF;
+}
+
+.light-button {
+    border-color: #A0C4FF;
+    background-color: #FFFFFF;
+    color: #A0C4FF;
+}
+
+.text-colored {
+    color: #6D6875;
+}
+
+.main-body {
+    border-color: #FFFFFF;
+    background-color: linear-gradient(94.78deg, #FFADAD 0%, #FFD6A5 14.58%, #FDFFB6 28.13%, #CAFFBF 42.71%, #9BF6FF 57.29%, #A0C4FF 71.88%, #BDB2FF 85.94%, #FFC6FF 100%);;
+}
+
+.header {
+    border-color: #6D6875;
+    background-color: #FFFFFF;
+    color: #A0C4FF;
+}

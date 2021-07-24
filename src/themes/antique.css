@@ -1,0 +1,24 @@
+.intensive-button {
+    background-color: #A5A58D;
+    color: #FFFFFF;
+}
+
+.light-button {
+    background-color: #FFFFFF;
+    color: #6B705C;
+}
+
+.text-colored {
+    color: #6B705C;
+}
+
+.main-body {
+    border-color: #6D6875;
+    background-color: #FFE8D6;
+}
+
+.header {
+    border-color: #6D6875;
+    background-color: #DDBEA9;
+    color: #6B705C;
+}
