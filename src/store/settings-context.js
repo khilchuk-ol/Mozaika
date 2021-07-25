@@ -21,9 +21,10 @@ export const SettingsContextProvider = (props) => {
   const [lang, setLang] = useState("en-US");
 
   useEffect(() => {
-    const settingsData = getCookies();
+    const settingsData = getCookies("mozaika-stg");
+
     if (!settingsData) {
-      setCookies({ theme, lang });
+      setCookies("mozaika-stg", { theme, lang });
     } else {
       if (settingsData.theme) {
         setTheme(settingsData.theme);
@@ -44,12 +45,12 @@ export const SettingsContextProvider = (props) => {
   }, [theme, lang, getCookies, setCookies]);
 
   const handleThemeChange = (newTheme) => {
-    setCookies({ lang, theme: newTheme });
+    setCookies("mozaika-stg", { lang, theme: newTheme });
     setTheme(newTheme);
   };
 
   const handleLangChange = (newLang) => {
-    setCookies({ lang: newLang, theme });
+    setCookies("mozaika-stg", { lang: newLang, theme });
     setLang(newLang);
   };
 
