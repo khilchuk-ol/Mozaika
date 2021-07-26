@@ -27,7 +27,9 @@ const DropDownSelector = (props) => {
       onChange={handleChange}
       ref={selectRef}>
       {props.options.map((str) => (
-        <option value={str}>{str}</option>
+        <option value={str} key={str}>
+          {str}
+        </option>
       ))}
     </select>
   );

@@ -32,7 +32,7 @@ const Header = (props) => {
           <DropDownSelector
             options={settingsCtx.languages}
             initialValue={settingsCtx.lang}
-            className=''
+            className='text-colored'
             onSelect={handleLangSelect}
           />
           {authCtx.isLoggedIn ? (
