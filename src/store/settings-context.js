@@ -1,14 +1,16 @@
 import { createContext, useEffect, useState } from "react";
 
 import useCookies from "../hooks/use-cookies";
-import themes from "../themes/data";
+import themes from "../settings/themes-data";
+import langs from "../settings/lang-data";
 
 const INIT_STATE = {
   theme: "default",
   themeFile: "",
-  lang: "en-US",
-  setTheme: (theme) => {},
-  setLang: (lang) => {},
+  lang: "english",
+  languages: ["english"],
+  changeTheme: (theme) => {},
+  changeLang: (lang) => {},
 };
 
 const SettingsContext = createContext(INIT_STATE);
@@ -18,7 +20,9 @@ export const SettingsContextProvider = (props) => {
 
   const [theme, setTheme] = useState("default");
   const [themeFile, setThemeFile] = useState("");
-  const [lang, setLang] = useState("en-US");
+  const [lang, setLang] = useState("english");
+
+  const languages = Object.keys(langs).sort();
 
   useEffect(() => {
     const settingsData = getCookies("mozaika-stg");
@@ -60,6 +64,7 @@ export const SettingsContextProvider = (props) => {
         theme,
         themeFile,
         lang,
+        languages,
         changeTheme: handleThemeChange,
         changeLang: handleLangChange,
       }}>

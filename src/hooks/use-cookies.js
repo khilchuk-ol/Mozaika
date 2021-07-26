@@ -39,7 +39,22 @@ const useCookies = () => {
     return data;
   }, []);
 
-  return [getCookies, setCookies];
+  const deleteCookies = useCallback((name) => {
+    if (!name) {
+      return;
+    }
+
+    const pattern = getCookiePattern(name);
+    const cookie = document.cookie.match(pattern)?.shift();
+
+    if (!cookie) {
+      return;
+    }
+
+    document.cookie.replace(pattern, "");
+  }, []);
+
+  return [getCookies, setCookies, deleteCookies];
 };
 
 export default useCookies;

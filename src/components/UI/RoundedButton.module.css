@@ -1,0 +1,18 @@
+.rounded-button {
+  border-radius: 25px;
+  border-width: 0;
+  height: 2.4rem;
+  width: 7.5rem;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 0.3rem;
+}
+
+.rounded-button:hover {
+  filter: brightness(85%);
+}
+
+.rounded-button:focus {
+  border: none;
+  outline: none;
+}
