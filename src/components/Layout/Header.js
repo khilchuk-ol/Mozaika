@@ -1,4 +1,5 @@
 import { Fragment, useContext } from "react";
+import { useHistory } from "react-router";
 
 import classes from "./Header.module.css";
 import HeaderSearchBar from "./HeaderSearchBar";
@@ -11,6 +12,8 @@ const Header = (props) => {
   const authCtx = useContext(AuthContext);
   const settingsCtx = useContext(SettingsContext);
 
+  const history = useHistory();
+
   const search = (str) => {
     console.log(str);
   };
@@ -21,6 +24,14 @@ const Header = (props) => {
     }
 
     settingsCtx.changeLang(str);
+  };
+
+  const onClickLogin = () => {
+    history.push("/login");
+  };
+
+  const onClickSignup = () => {
+    history.push("/signup");
   };
 
   return (
@@ -39,8 +50,16 @@ const Header = (props) => {
             <p>logged</p>
           ) : (
             <Fragment>
-              <RoundedButton text='Sign up' className='intensive-button' />
-              <RoundedButton text='Log in' className='light-button' />
+              <RoundedButton
+                text='Sign up'
+                className='intensive-button'
+                onClick={onClickSignup}
+              />
+              <RoundedButton
+                text='Log in'
+                className='light-button'
+                onClick={onClickLogin}
+              />
             </Fragment>
           )}
         </div>

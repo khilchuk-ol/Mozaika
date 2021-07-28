@@ -1,3 +1,32 @@
 .App {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif !important;
+  min-width: 100%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  padding-top: 15%;
+}
+
+.center p {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.center button {
+  margin-left: calc((100% - 120px) / 2);
+}
+
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  font-family: "Roboto", sans-serif !important;
+  font-size: 18px;
+  color: inherit;
+  font-weight: 900;
 }

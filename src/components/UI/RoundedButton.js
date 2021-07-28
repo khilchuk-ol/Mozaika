@@ -4,7 +4,9 @@ import classes from "./RoundedButton.module.css";
 
 const RoundedButton = (props) => {
   return (
-    <button className={`${props.className} ${classes["rounded-button"]}`}>
+    <button
+      onClick={props.onClick}
+      className={`${props.className} ${classes["rounded-button"]}`}>
       {props.text}
     </button>
   );
@@ -13,6 +15,7 @@ const RoundedButton = (props) => {
 RoundedButton.propTypes = {
   text: PropTypes.string.isRequired,
   className: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default RoundedButton;

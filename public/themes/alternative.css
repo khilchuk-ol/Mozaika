@@ -1,24 +1,33 @@
 .intensive-button {
-    background-color: #FF82A9;
-    color: #FFFFFF;
+  background-color: #ff82a9;
+  color: #ffffff;
 }
 
 .light-button {
-    background-color: #FFFFFF;
-    color: #000000;
+  background-color: #ffffff;
+  color: #000000;
 }
 
 .text-colored {
-    color: #7F95D1;
+  color: #7f95d1 !important;
 }
 
 .main-body {
-    border-color: #FF82A9;
-    background-color: #000000;
+  border-color: #ff82a9 !important;
+  background-color: #000000 !important;
 }
 
 .header {
-    border-color: #000000;
-    background-color: #7F95D1;
-    color: #000000;
+  border-color: #000000;
+  background-color: #7f95d1;
+  color: #000000;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #000000 inset !important;
+  -webkit-text-fill-color: #7f95d1 !important;
+  border-color: #ff82a9;
 }

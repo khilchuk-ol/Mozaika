@@ -16,7 +16,9 @@ function App() {
         document.getElementById("head")
       )}
       <Header />
-      <Router />
+      <div className='main-body'>
+        <Router />
+      </div>
     </div>
   );
 }
